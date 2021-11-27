@@ -1,19 +1,18 @@
 # Music Visualizer (v2)
 For visualizing sound intensity over time.
+Visualize Music/Audio Spectrum
 
 ## Usage:
 
-⚠️ Important: Provide your own audio by placing it in index.html inside `<audio>`
-
-Change the song bpm in index.js variable `songTempoBpm`
-
-Simply open index.html
+- Change `src` property of `<source src="music.mp3">` in the [index.html](src/index.html) with the audio file you want to Visualize.
+- Change the song BPM by chaning the value of `songTempoBpm` Variable in [index.js](src/index.js)
+- Simply open index.html
 
 ## Terminologies:
 
 ### Bar:
 
-Each one of these things is a bar. I really did not know what else to call it.
+Each one of these things is a bar which represents how high or low the Audio Spectrum is at that Particular point
 
 ![bar image](/doc/images/bar.png)
 
@@ -36,12 +35,12 @@ we have 10 bars, we expect samples to be produced at an interval of 50ms
 between consecutive beats of the song.
 
 #### Connections:
-![connections](/doc/images/connections.png)
+![connections](doc/images/connections.png)
 
 ### Audio info
 
 The Web Audio API provides AnalyserNode which can be used to obtain the audio
-amplitude over a frame of time.
+amplitude over a frame of time... Read More About Web Audio API at [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 
 ### Animation
 
@@ -76,7 +75,7 @@ invoked.
 
 Very rare, unless you are listening to Drum and Bass in a laptop from the 90s.
 
-![high bpm](/doc/images/high-bpm.png)
+![high bpm](doc/images/high-bpm.png)
 
 2. When the tempo of the song is low and frame rate is high
 
