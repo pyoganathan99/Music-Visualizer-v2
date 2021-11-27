@@ -14,7 +14,7 @@ Visualize Music/Audio Spectrum
 
 Each one of these things is a bar which represents how high or low the Audio Spectrum is at that Particular point
 
-![bar image](/doc/images/bar.png)
+![bar image](doc/images/bar.png)
 
 ### Sample:
 
@@ -44,9 +44,9 @@ amplitude over a frame of time... Read More About Web Audio API at [MDN Docs](ht
 
 ### Animation
 
-`window.requestAnimationFrame` is used for invoking a callback for every screen
-refresh (which would mostly be 60 times a second). The callback has access to a
-high resolution timestamp which is used to track which the previous sample was
+We use `window.requestAnimationFrame` for updating our bars every time our screen refreshes, so usually Computers have a frame rate of 60FPS (Frames Per Second) which means your screen will showing new data every 60 times in a second. So `window.requestAnimationFrame` will basically call a function we provide **before** every time our screen shows new data.
+
+The function we pass as an argument (also known as callback) has a parameter called **"Timestamp"** provided by `window.requestAnimationFrame` which we used to track when the previous sample was
 produced and when the next one should be produced.
 
 ### Producing samples
@@ -83,7 +83,7 @@ For eg: the more common use case, say 60fps, but the song is 120 BPM (or 2 per
 second), and same 10 bars (so need to produce 20 bars per second), we can
 comfortably produce samples at one or less than one each callback.
 
-![low bpm](/doc/images/low-bpm.png);
+![low bpm](doc/images/low-bpm.png);
 
 ## How amplitude is calculated:
 
