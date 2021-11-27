@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    height: 200px;
+    gap: 4px;
+}
+
+.bar {
+    width: 6px;
+    height: 100px;
+    background-color: #3b416f;
+}
