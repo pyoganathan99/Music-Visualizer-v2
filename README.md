@@ -1,21 +1,20 @@
 # Music Visualizer (v2)
 For visualizing sound intensity over time.
+Visualize Music/Audio Spectrum
 
 ## Usage:
 
-⚠️ Important: Provide your own audio by placing it in index.html inside `<audio>`
-
-Change the song bpm in index.js variable `songTempoBpm`
-
-Simply open index.html
+- Change `src` property of `<source src="music.mp3">` in the [index.html](src/index.html) with the audio file you want to Visualize.
+- Change the song BPM by chaning the value of `songTempoBpm` Variable in [index.js](src/index.js)
+- Simply open index.html
 
 ## Terminologies:
 
 ### Bar:
 
-Each one of these things is a bar. I really did not know what else to call it.
+Each one of these things is a bar which represents how high or low the Audio Spectrum is at that Particular point
 
-![bar image](/doc/images/bar.png)
+![bar image](doc/images/bar.png)
 
 ### Sample:
 
@@ -36,18 +35,18 @@ we have 10 bars, we expect samples to be produced at an interval of 50ms
 between consecutive beats of the song.
 
 #### Connections:
-![connections](/doc/images/connections.png)
+![connections](doc/images/connections.png)
 
 ### Audio info
 
 The Web Audio API provides AnalyserNode which can be used to obtain the audio
-amplitude over a frame of time.
+amplitude over a frame of time... Read More About Web Audio API at [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 
 ### Animation
 
-`window.requestAnimationFrame` is used for invoking a callback for every screen
-refresh (which would mostly be 60 times a second). The callback has access to a
-high resolution timestamp which is used to track which the previous sample was
+We use `window.requestAnimationFrame` for updating our bars every time our screen refreshes, so usually Computers have a frame rate of 60FPS (Frames Per Second) which means your screen will showing new data every 60 times in a second. So `window.requestAnimationFrame` will basically call a function we provide **before** every time our screen shows new data.
+
+The function we pass as an argument (also known as callback) has a parameter called **"Timestamp"** provided by `window.requestAnimationFrame` which we used to track when the previous sample was
 produced and when the next one should be produced.
 
 ### Producing samples
@@ -76,7 +75,7 @@ invoked.
 
 Very rare, unless you are listening to Drum and Bass in a laptop from the 90s.
 
-![high bpm](/doc/images/high-bpm.png)
+![high bpm](doc/images/high-bpm.png)
 
 2. When the tempo of the song is low and frame rate is high
 
@@ -84,7 +83,7 @@ For eg: the more common use case, say 60fps, but the song is 120 BPM (or 2 per
 second), and same 10 bars (so need to produce 20 bars per second), we can
 comfortably produce samples at one or less than one each callback.
 
-![low bpm](/doc/images/low-bpm.png);
+![low bpm](doc/images/low-bpm.png);
 
 ## How amplitude is calculated:
 
